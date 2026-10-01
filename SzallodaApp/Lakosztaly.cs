@@ -4,7 +4,13 @@ using System.Text;
 
 namespace SzallodaApp
 {
-    internal class Lakosztaly
+    internal class Lakosztaly : Szoba
     {
+        public int ExtraSzolgaltatasAr { get; set; }
+
+    public Lakosztaly(int extraszolgaltatasar ) : base(Szobaszam, )
+        {
+
+        }
     }
 }
