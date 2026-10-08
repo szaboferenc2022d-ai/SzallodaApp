@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SzallodaApp
 {
-    internal class Szoba
+    public class Szoba
     {
         public int Szobaszam { get; }
         protected int alapar { get; set; }
@@ -13,11 +13,7 @@ namespace SzallodaApp
             get { return alapar; }
             set
             {
-                if (value < 0)
-                {
-                    throw new("Az alapár nem lehet negatív.");
-                }
-                alapar = value;
+                if (value > 0) alapar = value;
             }
         }
 
@@ -30,12 +26,12 @@ namespace SzallodaApp
         
          public virtual int ArKiszamitas(int ejszakakSzama)
         {
-            return ejszakakSzama* Alapar;
+            return Alapar * ejszakakSzama;
         }
 
         public override string ToString()
         {
-            return $"Szoba {Szobaszam} | Alapár: {Alapar}";
+            return $"Szoba {Szobaszam} | Alapár: {Alapar} Ft/éj";
         }
 
     }

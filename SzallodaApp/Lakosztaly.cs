@@ -4,24 +4,24 @@ using System.Text;
 
 namespace SzallodaApp
 {
-    internal class Lakosztaly : Szoba
+    public class Lakosztaly : Szoba
     {
         public int ExtraSzolgaltatasAr { get; set; }
         
-
-        public Lakosztaly(int extraszolgaltatasar) : base(Szobaszam, alapar)
+        public Lakosztaly(int extraszolgaltatasar, int szobaszam, int alapar) : base(szobaszam, alapar)
         {
             ExtraSzolgaltatasAr = extraszolgaltatasar;
         }
 
         public override int ArKiszamitas(int ejszakakSzama)
         {
-            return base.ArKiszamitas( alapar + ExtraSzolgaltatasAr);
+            //return Alapar * ejszakakSzama + ExtraSzolgaltatasAr;
+            return base.ArKiszamitas(ejszakakSzama)+ ExtraSzolgaltatasAr;
         }
 
         public override string ToString()
         {
-            return base.ToString($"Extra szolgáltatás: {ExtraSzolgaltatasAr} Ft");
+            return $"{base.ToString()} | $Extra szolgáltatás: {ExtraSzolgaltatasAr} Ft";
         }
 
     }
